@@ -1,0 +1,43 @@
+import random
+lst=[]
+for i in range(12):
+    num = random.randint(1,100)
+    lst.append(num)
+#print(lst)
+player=lst[0:6]
+computer=lst[6:13]
+print("Player:",end=" ")
+for i in player:
+    print(i,end=" ")
+print()
+print("Computer:",end=" ")
+for j in computer:
+    print(j,end=" ")
+status = True
+while status:
+    for i in range(12):
+        lucky=random.choice(lst)
+        print()
+        print("--------------LUCKY NUMBER IS----------:",lucky)
+        lst.remove(lucky)
+        if lucky in player:
+            player.remove(lucky)
+        else:
+            computer.remove(lucky)
+        print("Player:",end=" ")
+        for i in player:
+            print(i,end=" ")
+        print()
+        print("Computer:",end=" ")
+        for j in computer:
+            print(j,end=" ")
+        print()
+        if len(computer)==0:
+            print("COMPUTER WINS")
+            status=False
+            break
+        elif len(player)==0:
+            print("PLAYER WINS")
+            status=False
+            break
+        choice=input()
